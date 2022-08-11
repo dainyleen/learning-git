@@ -1,24 +1,20 @@
-// Use .apex files to store anonymous Apex.
-// You can execute anonymous Apex in VS Code by selecting the
-//     apex text and running the command:
-//     SFDX: Execute Anonymous Apex with Currently Selected Text
-// You can also execute the entire file by running the command:
-//     SFDX: Execute Anonymous Apex with Editor Contents
-
-String dayOfWeek = 'Monday';
 
 
-switch on dayOfWeek {
-    when 'Friday' {
-        System.debug('Friday drinks');
+// Declare a list called input that holds four numbers (12, 20, 30, 17)
+List<Integer> input = new List<Integer>{12, 20, 30, 17};
+
+/*Loop through “input”, for each number display “Ding” via System Debug if “input” is multiples of 3 and “Dong” if it is multiples of 5*/
+for (Integer i : input) {
+    if (math.mod(i,3) == 0 && math.mod(i,5) != 0) {
+        System.debug('Ding');
     }
-    when 'Saturday' {
-        System.debug('Sports day');
+    else if (math.mod(i,5) == 0 && math.mod(i,3) != 0) {
+        System.debug('Dong');
     }
-    when 'Sunday' {
-        System.debug('Family day');
+    else if (math.mod(i,5) == 0 && math.mod(i,3) == 0) {
+        System.debug('Ding Dong');
     }
-    when else {
-        System.debug('Exciting work');
+    else {
+        System.debug(i);
     }
 }
